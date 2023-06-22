@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Azure Resource Selector</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Azure Resource Selector</h1>
+
+        {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST" action="/">
+            <div class="form-group">
+                <label for="subscription_id">Subscription ID:</label>
+                <input type="text" class="form-control" id="subscription_id" name="subscription_id" required>
+            </div>
+
+            <div class="form-group">
+                <label for="workload">Select Workloads:</label>
+                <select multiple class="form-control" id="workload" name="workload" required>
+                    <option value="web_app">Azure Web App</option>
+                    <option value="function">Azure Function</option>
+                    <option value="storage">Azure Storage</option>
+                    <option value="database">Azure Database</option>
+                    <option value="aks">Azure Kubernetes Service</option>
+                    <option value="snet">Azure Virtual Network Subnet</option>
+                    <option value="vnet">Azure Virtual Network</option>
+                    <option value="sql">Azure SQL Database</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
